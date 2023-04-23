@@ -104,6 +104,6 @@
   //   "**/*.dev.ts"
   // ],
   // "include": [
-  //   "app.ts"
+  //   "basics.ts"
   // ]
 }
