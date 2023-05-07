@@ -67,7 +67,7 @@ class AccountingDepartment extends Department {
   }
 }
 
-const employee1 = Department.createEmployee('Dave');
+const employee1 = Department.createEmployee('Dave'); // Static method
 console.log(employee1, Department.fiscalYear);
 
 const it = new ITDepartment('d1', ['Max']);
@@ -80,10 +80,10 @@ console.log(it);
 
 const accounting = new AccountingDepartment('d2', []);
 
-// accounting.addReport('Something went wrong!');
-accounting.mostRecentReport = 'Something went wrong!';
-accounting.mostRecentReport = 'Year end report!';
-console.log(accounting.mostRecentReport);
+// accounting.addReport('Something went wrong!'); // Won't work with private method
+accounting.mostRecentReport = 'Something went wrong!'; // Setter
+accounting.mostRecentReport = 'Year end report!'; // Setter
+console.log(accounting.mostRecentReport); // Getter
 
 accounting.addEmployee('Max');
 accounting.addEmployee('Malic');
