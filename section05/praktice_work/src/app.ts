@@ -1,21 +1,37 @@
-interface Named {
-  readonly name: string;
+// type AddFn = (a: number, b: number) => number; // type alias
+interface AddFn {
+  // function type
+  (a: number, b: number): number;
 }
+
+let add: AddFn;
+
+add = (n1: number, n2: number) => {
+  return n1 + n2;
+};
+
+interface Named {
+  readonly name?: string;
+  outputName?: string; // optional property
+}
+
 interface Greetable extends Named {
   // interface inheritance, can be multiple interfaces inherited by one interface, but only one class can be inherited by one class (no multiple inheritance)
   greet(phrase: string): void;
 }
 
 class Person implements Greetable {
-  name: string;
+  name?: string;
   age = 30;
 
-  constructor(n: string) {
-    this.name = n;
+  constructor(n?: string) {
+    if (n) this.name = n;
   }
 
   greet(phrase: string) {
-    console.log(phrase + ' ' + this.name);
+    if (this.name) {
+      console.log(phrase + ' ' + this.name);
+    } else console.log('Hi!');
   }
 }
 
