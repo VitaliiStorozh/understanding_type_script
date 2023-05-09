@@ -1,6 +1,8 @@
-interface Greetable {
+interface Named {
   readonly name: string;
-
+}
+interface Greetable extends Named {
+  // interface inheritance, can be multiple interfaces inherited by one interface, but only one class can be inherited by one class (no multiple inheritance)
   greet(phrase: string): void;
 }
 
